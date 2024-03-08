@@ -1,0 +1,19 @@
+# The following query uses Views to store the result of an inner query that uses Joins and Grouping to find which Rockbuster movies contributed the most/least to revenue gain.
+
+CREATE VIEW revenue_by_movies AS (							
+	SELECT						
+		A.title AS film_title,					
+		name AS category_name,					
+		SUM(F.amount) AS rental_revenue					
+	FROM film AS A						
+	JOIN film_category AS B ON A.film_id = B.film_id						
+	JOIN category AS C ON B.category_id = C.category_id						
+	JOIN inventory AS D ON A.film_id = D.film_id						
+	JOIN rental AS E ON D.inventory_id = E.inventory_id						
+	JOIN payment AS F ON E.rental_id = F.rental_id						
+	GROUP BY film_title, category_name						
+	ORDER BY rental_revenue DESC						
+)							
+SELECT							
+	*						
+FROM revenue_by_movies							

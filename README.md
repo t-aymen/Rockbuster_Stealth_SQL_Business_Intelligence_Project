@@ -17,5 +17,5 @@ To help inform the launch strategy of their online video service, the Rockbuster
 
 <i> *The dataset requires a relational database management system (RDBMS) software such as PostgreSQL or SQLServer to be loaded and accessed. </i>.
 
-## Project Folder Structure
-1. 
+## Visualizations
+All visualizations can be accessed and viewed on <a href="https://public.tableau.com/app/profile/aymen.touihri/vizzes"> Tableau Public </a>.

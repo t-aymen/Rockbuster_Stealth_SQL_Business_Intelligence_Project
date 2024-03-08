@@ -1,0 +1,44 @@
+# The following query uses a CTE (Common Table Expression) to temporarily store the result of a complex inner query made of Subqueries, Joins, and Grouping to find the location (country and city) of the top 5 highest lifetime value customers.
+
+WITH cte_top_5_customers (customer_id, first_name, last_name, city, country, total_amount_paid) AS (										
+	SELECT									
+		A.customer_id,								
+		B.first_name,								
+		B.last_name,								
+		D.city,								
+		E.country,								
+		SUM(A.amount) AS total_amount_paid								
+	FROM payment AS A 									
+	JOIN customer AS B ON A.customer_id = B.customer_id									
+	JOIN address AS C ON B.address_id = C.address_id									
+	JOIN city AS D ON C.city_id = D.city_id									
+	JOIN country AS E ON D.country_id = E.country_id									
+	WHERE D.city IN (									
+		SELECT								
+			C.city							
+		FROM customer as A								
+		JOIN address AS B ON A.address_id = B.address_id								
+		JOIN city AS C ON B.city_id = C.city_id								
+		JOIN country AS D ON C.country_id = D.country_id								
+		WHERE D.country IN (								
+			SELECT							
+				D.country						
+			FROM customer as A							
+			JOIN address AS B ON A.address_id = B.address_id							
+			JOIN city AS C ON B.city_id = C.city_id							
+			JOIN country AS D ON C.country_id = D.country_id							
+			GROUP BY D.country							
+			ORDER BY COUNT(A.*) DESC							
+			LIMIT 10							
+			)							
+		GROUP BY D.country, C.city								
+		ORDER BY COUNT(A.*) DESC								
+		LIMIT 10								
+		)								
+	GROUP BY A.customer_id, B.first_name, B.last_name, D.city, E.country									
+	ORDER BY total_amount_paid DESC									
+	LIMIT 5									
+)										
+SELECT										
+	*									
+FROM cte_top_5_customers										

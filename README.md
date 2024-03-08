@@ -15,7 +15,7 @@ To help inform the launch strategy of their online video service, the Rockbuster
 ## Data Source
 * <a href="https://drive.google.com/file/d/1C4t_wK6YiALo7E8kTdFFlrGrfxRXUVt8/view?usp=drive_link"> Rockbuster Dataset </a> is created and provided by CareerFoundry for the purpose of this analysis. It contains information such as inventory, customers, payments, etc.
 
-<i> *The dataset requires a relational database management system (RDBMS) software such as PostgreSQL or SQLServer to be loaded and accessed. </i>.
+<i> *The dataset requires a relational database management system (RDBMS) software such as PostgreSQL or SQLServer to be loaded and accessed. </i>
 
 ## Visualizations
 All visualizations can be accessed and viewed on <a href="https://public.tableau.com/app/profile/aymen.touihri/vizzes"> Tableau Public </a>.

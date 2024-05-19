@@ -1,4 +1,4 @@
-# Rockbuster Stealth Analysis Project
+# Rockbuster Stealth Business Intelligence Analysis Project
 Rockbuster Stealth LLC is a mock movie rental company that used to have stores around the world. Facing stiff competition from streaming services such as Netflix and Amazon Prime, the Rockbuster Stealth management team is planning to use its existing movie licenses to launch an online video rental service in order to stay competitive.
 
 We take the role of a data analyst to help Rockbuster Stealth’s business intelligence department with the launch strategy for their new online video service. Our task is to load all of Rockbuster’s data into a relational database management system (RDBMS). Then, we’ll use SQL to analyze the data and answer any business questions that other departments may have. We will also use Tableau to visualize and communicate our findings to the Rockbuster Stealth management board. 
